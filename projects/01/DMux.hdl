@@ -14,5 +14,9 @@ CHIP DMux {
     OUT a, b;
 
     PARTS:
+    // How to design those gate and think about it?
     // Put your code here:
+    Not(in=sel, out=notsel);
+    And(a=in, b=notsel, out=a);
+    And(a=in, b=sel, out=b);
 }
