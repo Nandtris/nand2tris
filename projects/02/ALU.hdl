@@ -57,6 +57,13 @@ CHIP ALU {
     Add16(a=Muxnx, b=Muxny, out=Addxy);
     Mux16(a=Andxy, b=Addxy, sel=f, out=Muxf);
     // no 
+    // ng referto: https://gittest2121.gitbook.io/nand2tetris/combinational-chips/alu
     Not16(in=Muxf, out=notno);
-    Mux16(a=Muxf, b=notno, sel=no, out=out);
+    Mux16(a=Muxf, b=notno, sel=no, out=out, out[0..7]=por1, out[8..15]=por2, out[15]=ng);
+    
+    // zr
+    Or8Way(in=por1, out=zr1);
+    Or8Way(in=por2, out=zr2);
+    Or(a=zr1, b=zr2, out=notzr);
+    Not(in=notzr, out=zr);
 }
