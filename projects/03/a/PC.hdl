@@ -17,4 +17,16 @@ CHIP PC {
 
     PARTS:
     // Put your code here:
+    // Mux16(a=in, b=false, sel=reset, out=muxreset);
+    // Register(in=muxreset, load=load, out=registerload);
+    // Inc16(in=registerload, out=inc1);
+    // Mux16(a=registerload, b=inc1, sel=inc, out=out);
+
+// how to do it??
+Mux16(a = preout, b = addout, sel = inc, out = outa);
+Mux16(a = outa, b = in, sel = load, out = outb);
+Mux16(a = outb, b = false, sel = reset, out = outc);
+Register(in = outc, load = true, out = preout, out = out);
+Inc16(in = preout, out = addout);
+
 }
