@@ -12,3 +12,6 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+
+    @SCREEN
+    M=1
