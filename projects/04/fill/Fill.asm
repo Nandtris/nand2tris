@@ -13,5 +13,38 @@
 
 // Put your code here.
 
-    @SCREEN
-    M=1
+@KBD
+D=M
+@KBD_NOT0
+D;JGT
+(SCREEN_NOT0)
+@0
+D=M //50
+@23
+D;JLE //D<=0
+@16
+M=D  //@16=50
+@16834
+D=A  //D=16384
+@17  
+M=D  //@17=16384
+@17 
+A=M  //A=16384
+M=-1 //RAM[16384]=-1 
+@17
+D=M  //D=16384
+@32
+D=D+A  //D=16384+32=16416
+@17  
+M=D  //@17=16416
+@16
+MD=M-1  //MD=50-1
+@10
+D;JGT  //D>0 JUMP @10
+@23
+0;JMP  //JUMP @23
+
+@KBD_EQ0
+D;JEQ
+(KBD_EQ0)
+
