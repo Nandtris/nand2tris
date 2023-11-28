@@ -13,5 +13,38 @@
 
 // Put your code here.
 
-    @SCREEN
-    M=1
+@KBD
+D=M
+@LISTEN
+D;JNE
+
+(LISTEN)
+//@R0
+//D=M
+@8192
+D=A
+@END
+D;JLE
+@CYCLE_COUNTER
+M=D
+@16834
+D=A
+@POINTER
+M=D
+(LOOP)
+@POINTER
+A=M
+M=-1
+@POINTER
+D=M
+@32
+D=D+A
+@POINTER
+M=D
+@CYCLE_COUNTER
+MD=M-1
+@LOOP
+D;JGT
+(END)
+@END
+0;JMP
