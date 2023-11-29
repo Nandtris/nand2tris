@@ -20,9 +20,9 @@ D;JNE
 
 @16834
 D=A
+
 @POINTER
 M=D
-
 (LOOP)
 @POINTER
 A=M
@@ -56,21 +56,5 @@ D;JNE
 
 @KBD
 D=M
-@LOOP2
+@LOOP
 D;JEQ
-(LOOP2)
-@POINTER
-A=M
-M=-1
-@POINTER
-D=M
-@1
-D=D+A
-@POINTER
-M=D
-@KBD
-D=M
-@LOOP2
-D;JEQ
-
-// the forth is wrong!
