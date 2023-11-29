@@ -13,14 +13,15 @@
 
 // Put your code here.
 
+// Reverse Fill.asm edition. 
+// the Fill.asm I do NOT kown.
 @KBD
 D=M
 @LOOP1
 D;JNE
 
-@16834
+@SCREEN //@16384 & reset pointer
 D=A
-
 @POINTER
 M=D
 (LOOP)
@@ -39,6 +40,11 @@ D=M
 @LOOP
 D;JEQ
 
+
+@SCREEN
+D=A
+@POINTER
+M=D
 (LOOP1)
 @POINTER
 A=M
@@ -46,7 +52,7 @@ M=0
 @POINTER
 D=M
 @1
-D=D-A
+D=D+A
 @POINTER
 M=D
 @KBD
@@ -54,6 +60,11 @@ D=M
 @LOOP1
 D;JNE
 
+
+@SCREEN
+D=A
+@POINTER //reset pointer=16384
+M=D
 @KBD
 D=M
 @LOOP
