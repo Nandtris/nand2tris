@@ -41,6 +41,7 @@ CHIP Memory {
     And(a = isScreen, b = load, out = Screenload);
     Screen(in = in, load = Screenload, address = address[0..12], out = Screenout);
     Keyboard(out = Keyboardout);
+    //? sel = isRAM
     Mux16(a = Screenout, b = RAMout, sel = isRAM, out = out1);
     Or(a = isRAM, b = isScreen, out = ispart12);
     Mux16(a = Keyboardout, b = out1, sel = ispart12, out = out);
